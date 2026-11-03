@@ -1,0 +1,7 @@
+.path-admin-tool-mailhealth .tool_mailhealth-findings {
+    table-layout: fixed;
+}
+
+.path-admin-tool-mailhealth .tool_mailhealth-status {
+    width: 6rem;
+}

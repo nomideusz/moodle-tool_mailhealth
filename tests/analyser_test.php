@@ -21,6 +21,7 @@ use tool_mailhealth\local\analyser;
 use tool_mailhealth\local\finding;
 use tool_mailhealth\local\resolver;
 
+#[\PHPUnit\Framework\Attributes\CoversClass(analyser::class)]
 /**
  * Tests for the mail checks.
  *
@@ -29,7 +30,6 @@ use tool_mailhealth\local\resolver;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @covers     \tool_mailhealth\local\analyser
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(analyser::class)]
 final class analyser_test extends \basic_testcase {
     /**
      * Creates an analyser that answers from fixed records.

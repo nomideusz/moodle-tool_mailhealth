@@ -54,10 +54,17 @@ jobs:
         env:
           DB: ${{ matrix.db }}
           MOODLE_BRANCH: ${{ matrix.moodle }}
+      # Every check runs even if an earlier one failed, so one run reports all problems.
       - run: moodle-plugin-ci phplint
-      - run: moodle-plugin-ci phpcs --max-warnings 0
-      - run: moodle-plugin-ci phpdoc --max-warnings 0
-      - run: moodle-plugin-ci validate
-      - run: moodle-plugin-ci savepoints
-      - run: moodle-plugin-ci mustache
-      - run: moodle-plugin-ci phpunit --fail-on-warning
+      - if: ${{ !cancelled() }}
+        run: moodle-plugin-ci phpcs --max-warnings 0
+      - if: ${{ !cancelled() }}
+        run: moodle-plugin-ci phpdoc --max-warnings 0
+      - if: ${{ !cancelled() }}
+        run: moodle-plugin-ci validate
+      - if: ${{ !cancelled() }}
+        run: moodle-plugin-ci savepoints
+      - if: ${{ !cancelled() }}
+        run: moodle-plugin-ci mustache
+      - if: ${{ !cancelled() }}
+        run: moodle-plugin-ci phpunit --fail-on-warning

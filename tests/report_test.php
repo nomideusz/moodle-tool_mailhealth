@@ -22,6 +22,8 @@ use tool_mailhealth\local\finding;
 use tool_mailhealth\local\report;
 use tool_mailhealth\local\resolver;
 
+#[\PHPUnit\Framework\Attributes\CoversClass(report::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(mailhealth::class)]
 /**
  * Tests for the report and the status check.
  *
@@ -31,8 +33,6 @@ use tool_mailhealth\local\resolver;
  * @covers     \tool_mailhealth\local\report
  * @covers     \tool_mailhealth\check\mailhealth
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(report::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(mailhealth::class)]
 final class report_test extends \advanced_testcase {
     /**
      * Creates a resolver that finds no records and counts its lookups.
